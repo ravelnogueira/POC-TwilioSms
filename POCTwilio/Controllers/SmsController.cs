@@ -17,9 +17,9 @@ namespace POCTwilio.Controllers
         }
 
         [HttpPost]
-        public void ValidaCode(string Code, string Number) 
+        public string ValidaCode(string Code, string Number) 
         {
-            Validity.ValidarSms(Code, Number);
+            return Validity.ValidarSms(Code, Number);
         }
                
     }
