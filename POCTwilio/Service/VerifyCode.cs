@@ -28,10 +28,12 @@ namespace SMS_Twilio.Service
 
             var status = verificationCheck.Status switch
             {
-                "approved" => "O Codigo esta correto",
-                "canceled" => "O Código está cancelado",
-                "pending" => "O código não foi verificado",
-                "Null" => "Null"
+                "approved" => "correct code",
+                "canceled" => "canceled code",
+                "pending" => "unchecked code",
+                "Null" => "Null",
+                _ => "Error"
+
             };
 
             return status;
