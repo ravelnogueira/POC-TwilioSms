@@ -15,32 +15,30 @@ namespace SMS_Twilio.Service
         {
 
             string accountSid = "AC0de5bade55a7b53999fe2b341cd06861";
-            string authToken = "edea67f5e756b4c7b80af765ad8359de";
+            string authToken = "9d8444b8073fb9ac8de7147073fddd97";
 
             TwilioClient.Init(accountSid, authToken);
 
             var verificationCheck = VerificationCheckResource.Create(
                 to: Number,
                 code: code,
-                pathServiceSid: "VAe82fd5f22de70bfe86aa8732b009eb3a"
+                pathServiceSid: "VAeff2402e33809f06a193c4fb03cd3b6f"
             );
 
-            switch (verificationCheck.Status)
-            {
-                case "approved":
-                    return ("O Codigo esta correto");
-                
-                case "canceled":
-                    return ("O Código está cancelado");
-                    
-                case "pending":
-                    return "O código não foi verificado";
-           
-                default:
-                    return "Null";
-            }
 
-        }
+            var status = verificationCheck.Status switch
+            {
+                "approved" => "O Codigo esta correto",
+                "canceled" => "O Código está cancelado",
+                "pending" => "O código não foi verificado",
+                "Null" => "Null"
+            };
+
+            return status;
+
+
+
+    }
 
     }
 }

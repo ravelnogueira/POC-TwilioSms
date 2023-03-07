@@ -13,14 +13,14 @@ namespace SMS_Twilio.Service
         public static void Execute(string number)
         {
             string accountSid = "AC0de5bade55a7b53999fe2b341cd06861";
-            string authToken = "edea67f5e756b4c7b80af765ad8359de";
+            string authToken = "9d8444b8073fb9ac8de7147073fddd97";
 
             TwilioClient.Init(accountSid, authToken);
 
             var verification = VerificationResource.Create(
                 to: number,
                 channel: "sms",
-                pathServiceSid: "VAe82fd5f22de70bfe86aa8732b009eb3a"
+                pathServiceSid: "VAeff2402e33809f06a193c4fb03cd3b6f"
         );
 
         }
