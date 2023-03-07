@@ -19,7 +19,7 @@ namespace SMS_Twilio.Service
             var verification = VerificationResource.Create(
                 to: number,
                 channel: "sms",
-                pathServiceSid: "VAeff2402e33809f06a193c4fb03cd3b6f"
+                pathServiceSid: Auth.pathServiceSid
         );
 
         }

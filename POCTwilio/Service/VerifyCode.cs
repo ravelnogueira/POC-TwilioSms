@@ -15,15 +15,13 @@ namespace SMS_Twilio.Service
         public static string ValidarSms(string code, string Number)
         {
 
-            string accountSid = "AC0de5bade55a7b53999fe2b341cd06861";
-            string authToken = "9d8444b8073fb9ac8de7147073fddd97";
 
-            TwilioClient.Init(Auth.AccountSid, Auth.uthToken);
+            TwilioClient.Init(Auth.AccountSid, Auth.AuthToken);
 
             var verificationCheck = VerificationCheckResource.Create(
                 to: Number,
                 code: code,
-                pathServiceSid: "VAeff2402e33809f06a193c4fb03cd3b6f"
+                pathServiceSid: Auth.pathServiceSid
             );
 
 
@@ -31,7 +29,7 @@ namespace SMS_Twilio.Service
             {
                 "approved" => "correct code",
                 "canceled" => "canceled code",
-                "pending" => "unchecked code",
+                "pending" => "incorrect code",
                 "Null" => "Null",
                 _ => "Error"
 
