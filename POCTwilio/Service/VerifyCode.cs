@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Twilio.Rest.Verify.V2.Service;
 using Twilio;
 using System.Linq.Expressions;
+using POCTwilio.Models;
 
 namespace SMS_Twilio.Service
 {
@@ -14,15 +15,15 @@ namespace SMS_Twilio.Service
         public static string ValidarSms(string code, string Number)
         {
 
-            string accountSid = "AC0de5bade55a7b53999fe2b341cd06861";
-            string authToken = "9d8444b8073fb9ac8de7147073fddd97";
+            string accountSid = Auth.accountSid;
+            string authToken = Auth.authToken;
 
             TwilioClient.Init(accountSid, authToken);
 
             var verificationCheck = VerificationCheckResource.Create(
                 to: Number,
                 code: code,
-                pathServiceSid: "VAeff2402e33809f06a193c4fb03cd3b6f"
+                pathServiceSid: Auth.pathServiceSid
             );
 
 
